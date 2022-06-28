@@ -2,6 +2,7 @@ package com.cevdetyilmaz.data.datasource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.cevdetyilmaz.core.util.Constants
 import com.cevdetyilmaz.spacexlaunch.GetLaunchesQuery
 import javax.inject.Inject
 
@@ -18,7 +19,7 @@ class GetLaunchesPagingSource @Inject constructor(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, GetLaunchesQuery.LaunchesPast> {
         return try {
             val nextPageNumber = params.key ?: 0
-            val nextPageWithOffset = ((params.key ?: 0) * RemoteDataSource.LIMIT)
+            val nextPageWithOffset = ((params.key ?: 0) * Constants.Networking.LIMIT)
             val response = remoteDataSource.getLaunches(nextPageWithOffset)
             val keyData = response.data?.launchesPast
             if (response.hasErrors() || keyData == null) {
