@@ -16,6 +16,7 @@ import com.cevdetyilmaz.presentation.feature.list.adapter.LaunchListAdapter
 import com.cevdetyilmaz.presentation.feature.list.adapter.LoadMoreStateAdapter
 import com.cevdetyilmaz.presentation.util.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class LaunchListFragment : BaseFragment<LaunchListViewModel>(R.layout.fragment_launch_list) {
@@ -35,9 +36,12 @@ class LaunchListFragment : BaseFragment<LaunchListViewModel>(R.layout.fragment_l
 
     override fun observeViewModel(viewModel: LaunchListViewModel) {
         super.observeViewModel(viewModel)
-        viewModel.searchResult.observe(viewLifecycleOwner) {
-            lifecycleScope.launchWhenCreated {
-                launchListAdapter.submitData(it)
+        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+            viewModel.launchResult.collectLatest {
+                when (it) {
+                    LaunchListEvent.Idle -> Unit
+                    is LaunchListEvent.DataLoaded -> launchListAdapter.submitData(it.data)
+                }
             }
         }
     }
