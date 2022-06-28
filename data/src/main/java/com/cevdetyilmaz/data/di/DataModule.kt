@@ -3,6 +3,7 @@ package com.cevdetyilmaz.data.di
 import com.apollographql.apollo3.ApolloClient
 import com.cevdetyilmaz.data.datasource.RemoteDataSource
 import com.cevdetyilmaz.data.datasource.RemoteDataSourceImpl
+import com.cevdetyilmaz.data.mapper.LaunchesDetailMapper
 import com.cevdetyilmaz.data.mapper.LaunchesMapper
 import com.cevdetyilmaz.data.repository.LaunchRepositoryImpl
 import com.cevdetyilmaz.domain.repository.LaunchRepository
@@ -24,6 +25,7 @@ object DataModule {
     @Singleton
     fun provideLaunchRepository(
         mapper: LaunchesMapper,
+        detailMapper: LaunchesDetailMapper,
         remoteDataSource: RemoteDataSource
-    ): LaunchRepository = LaunchRepositoryImpl(remoteDataSource, mapper)
+    ): LaunchRepository = LaunchRepositoryImpl(remoteDataSource, mapper, detailMapper)
 }

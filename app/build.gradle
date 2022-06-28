@@ -36,6 +36,10 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':domain')
+    implementation project(path: ':core')
+    implementation project(path: ':data')
+    implementation project(path: ':presentation')
     implementation libraries.androidCore
     implementation libraries.appCompat
     implementation libraries.material
