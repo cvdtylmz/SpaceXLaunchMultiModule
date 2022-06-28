@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivLaunch"
+            android:layout_width="0dp"
+            android:layout_height="550dp"
+            android:contentDescription="@string/launch"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pbLoading"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvLaunchDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingHorizontal="10dp"
+            android:paddingTop="4dp"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@color/success"
+            app:layout_constraintTop_toBottomOf="@id/ivLaunch"
+            tools:text="Hello" />
+
+        <TextView
+            android:id="@+id/tvLaunchName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="start"
+            android:maxLines="1"
+            android:paddingHorizontal="10dp"
+            android:paddingBottom="10dp"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/on_surface"
+            app:layout_constraintTop_toBottomOf="@id/tvLaunchDate"
+            tools:text="Hello" />
+
+        <TextView
+            android:id="@+id/tvDetailHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="start"
+            android:maxLines="1"
+            android:paddingHorizontal="10dp"
+            android:text="@string/detail"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@color/text_hint"
+            app:layout_constraintTop_toBottomOf="@id/tvLaunchName" />
+
+        <TextView
+            android:id="@+id/tvDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:maxLines="1"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="10dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/on_surface"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailHeader"
+            tools:text="Hello" />
+
+        <TextView
+            android:id="@+id/tvTwitterLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:maxLines="1"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="10dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/primary"
+            app:layout_constraintTop_toBottomOf="@id/tvDetail"
+            tools:text="Hello" />
+
+        <TextView
+            android:id="@+id/tvWikiLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxLines="1"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="10dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/primary"
+            app:layout_constraintTop_toBottomOf="@id/tvTwitterLink"
+            tools:text="Hello" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id("com.apollographql.apollo3").version("3.3.2")
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: '../dependency_configs.gradle'
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    apollo {
+        service("spaceXlaunch") {
+            packageName.set("com.cevdetyilmaz.spacexlaunch")
+            introspection {
+                endpointUrl.set("https://api.spacex.land/graphql")
+                schemaFile.set(file("src/main/graphql/com/cevdetyilmaz/spacexlaunch/schema.json"))
+            }
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':domain')
+    implementation project(path: ':core')
+
+    implementation libraries.androidCore
+    implementation libraries.appCompat
+    implementation libraries.material
+    testImplementation testLibraries.junit
+    androidTestImplementation testLibraries.androidxTestJunit
+    androidTestImplementation testLibraries.espresso
+
+    implementation libraries.okhttp
+    implementation libraries.apollo
+    implementation libraries.loggingInterceptor
+
+    implementation libraries.paging
+
+    implementation libraries.hilt
+    kapt libraries.hiltCompiler
+}
+
+

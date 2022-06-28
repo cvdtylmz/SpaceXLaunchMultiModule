@@ -1,0 +1,14 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "SpaceXLaunchApp"
+include ':app'
+include ':core'
+include ':data'
+include ':domain'
+include ':presentation'

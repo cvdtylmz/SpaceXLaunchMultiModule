@@ -1,0 +1,11 @@
+query GetLaunches($limit: Int, $offset: Int) {
+    launchesPast(limit: $limit, offset: $offset) {
+        id
+        mission_name
+        mission_id
+        launch_date_local
+        links {
+            flickr_images
+        }
+    }
+}
