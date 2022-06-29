@@ -19,8 +19,8 @@ class LaunchDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val id = savedStateHandle.get<String>(Constants.Bundle.launchId).orEmpty()
-    private val missionId = savedStateHandle.get<String>(Constants.Bundle.missionId).orEmpty()
+    private val id = savedStateHandle.get<String?>(Constants.Bundle.launchId).orEmpty()
+    private val missionId = savedStateHandle.get<String?>(Constants.Bundle.missionId).orEmpty()
 
     private val _detailFlow = MutableStateFlow<LaunchDetailEvent>(LaunchDetailEvent.Idle)
     val detailFlow = _detailFlow.asStateFlow()

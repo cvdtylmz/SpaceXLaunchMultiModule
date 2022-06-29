@@ -19,7 +19,7 @@ object DummyLaunchDetailViewModelResponse {
     )
 
     val getLaunchDetailFailureResponse = Resource.Failure<String>(error = "Error")
-    val getLaunchDetailSuccessResponse = flowOf(Resource.Success(launchDetailResponse))
+    val getLaunchDetailSuccessResponse = Resource.Success(launchDetailResponse)
 
     val successResultData = LaunchDetailEvent.DataLoaded(launchDetailResponse)
 
