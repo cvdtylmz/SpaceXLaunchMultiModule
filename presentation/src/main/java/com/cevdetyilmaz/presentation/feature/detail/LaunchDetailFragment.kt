@@ -1,6 +1,5 @@
 package com.cevdetyilmaz.presentation.feature.detail
 
-import android.os.Bundle
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -9,6 +8,7 @@ import com.cevdetyilmaz.domain.model.LaunchDetail
 import com.cevdetyilmaz.presentation.R
 import com.cevdetyilmaz.presentation.base.BaseFragment
 import com.cevdetyilmaz.presentation.databinding.FragmentLaunchDetailBinding
+import com.cevdetyilmaz.presentation.util.show
 import com.cevdetyilmaz.presentation.util.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -42,9 +42,14 @@ class LaunchDetailFragment : BaseFragment<LaunchDetailViewModel>(R.layout.fragme
         }
     }
 
-    private fun initUI(data : LaunchDetail) {
+    private fun initUI(data: LaunchDetail) {
         with(binding) {
-            // todo set data
+            tvLaunchName.text = data.missionName
+            tvLaunchDate.text = data.date
+            tvDetail.text = data.description
+            tvTwitterLink.text = getString(R.string.twitter_link, data.twitterLink)
+            tvWikiLink.text = getString(R.string.wiki_link, data.wikiLink)
+            ivLaunch.show(data.image)
         }
     }
 }

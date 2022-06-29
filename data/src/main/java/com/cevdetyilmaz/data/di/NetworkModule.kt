@@ -2,6 +2,7 @@ package com.cevdetyilmaz.data.di
 
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.network.okHttpClient
+import com.cevdetyilmaz.core.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +31,7 @@ object NetworkModule {
     @Singleton
     fun provideApolloClient(okHttpClient: OkHttpClient): ApolloClient {
         return ApolloClient.Builder()
+            .serverUrl(Constants.Networking.BASE_URL)
             .okHttpClient(okHttpClient)
             .build()
     }

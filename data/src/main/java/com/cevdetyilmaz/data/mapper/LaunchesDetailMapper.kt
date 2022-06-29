@@ -1,8 +1,9 @@
 package com.cevdetyilmaz.data.mapper
 
+import com.cevdetyilmaz.data.util.DateUtil
 import com.cevdetyilmaz.domain.mapper.DomainMapper
 import com.cevdetyilmaz.domain.model.LaunchDetail
-import com.cevdetyilmaz.spacexlaunch.GetLaunchDetailsQuery
+import com.cevdetyilmaz.spacexlaunchapp.GetLaunchDetailsQuery
 import javax.inject.Inject
 
 class LaunchesDetailMapper @Inject constructor() : DomainMapper<GetLaunchDetailsQuery.Data?, LaunchDetail> {
@@ -13,7 +14,7 @@ class LaunchesDetailMapper @Inject constructor() : DomainMapper<GetLaunchDetails
             twitterLink = dataModel?.mission?.twitter.orEmpty(),
             wikiLink = dataModel?.mission?.wikipedia.orEmpty(),
             image = dataModel?.launch?.links?.flickr_images?.firstOrNull().orEmpty(),
-            date = dataModel?.launch?.launch_date_utc.toString()
+            date = DateUtil.formatDate(dataModel?.launch?.launch_date_utc)
         )
     }
 }

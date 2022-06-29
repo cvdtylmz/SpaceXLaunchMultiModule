@@ -1,5 +1,5 @@
 {
-  "name": "SpaceXLaunch Schema",
+  "name": "SpaceXLaunchApp Schema",
   "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {

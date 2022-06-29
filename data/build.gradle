@@ -34,10 +34,10 @@ android {
     }
     apollo {
         service("spaceXlaunch") {
-            packageName.set("com.cevdetyilmaz.spacexlaunch")
+            packageName.set("com.cevdetyilmaz.spacexlaunchapp")
             introspection {
                 endpointUrl.set("https://api.spacex.land/graphql")
-                schemaFile.set(file("src/main/graphql/com/cevdetyilmaz/spacexlaunch/schema.json"))
+                schemaFile.set(file("src/main/graphql/com/cevdetyilmaz/spacexlaunchapp/schema.json"))
             }
         }
     }

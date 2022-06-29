@@ -45,7 +45,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:maxLines="1"
             android:paddingHorizontal="10dp"
             android:paddingBottom="10dp"
             android:textAppearance="?android:textAppearanceMedium"

@@ -29,7 +29,7 @@ class LaunchDetailViewModel @Inject constructor(
         getLaunchDetail()
     }
 
-    private fun getLaunchDetail() {
+    fun getLaunchDetail() {
         viewModelScope.launch {
             val param = GetLaunchDetailUseCase.Param(id, missionId)
             detailUseCase.getExecutable(param).collectLatest {

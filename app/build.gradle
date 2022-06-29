@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id("com.apollographql.apollo3").version("3.3.2")
     id 'dagger.hilt.android.plugin'
 }
 
@@ -33,6 +34,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    apollo {
+        service("spaceXlaunch") {
+            packageName.set("com.cevdetyilmaz.spacexlaunchapp")
+            introspection {
+                endpointUrl.set("https://api.spacex.land/graphql")
+                schemaFile.set(file("src/main/graphql/com/cevdetyilmaz/spacexlaunchapp/schema.json"))
+            }
+        }
+    }
 }
 
 dependencies {
@@ -46,4 +56,11 @@ dependencies {
     implementation libraries.constraintLayout
     implementation libraries.hilt
     kapt libraries.hiltCompiler
+    implementation libraries.okhttp
+    implementation libraries.apollo
+    implementation libraries.loggingInterceptor
+
+    testImplementation testLibraries.coroutines
+    testImplementation testLibraries.mockk
+    testImplementation testLibraries.truth
 }

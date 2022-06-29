@@ -3,7 +3,7 @@ package com.cevdetyilmaz.data.datasource
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.cevdetyilmaz.core.util.Constants
-import com.cevdetyilmaz.spacexlaunch.GetLaunchesQuery
+import com.cevdetyilmaz.spacexlaunchapp.GetLaunchesQuery
 import javax.inject.Inject
 
 class GetLaunchesPagingSource @Inject constructor(

@@ -31,13 +31,15 @@
 
         <TextView
             android:id="@+id/tvLaunchDate"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="end"
             android:paddingHorizontal="10dp"
             android:paddingTop="4dp"
             android:textAppearance="?android:textAppearanceSmall"
             android:textColor="@color/success"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivLaunch"
             tools:text="Hello" />
 
@@ -74,7 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="start"
-            android:maxLines="1"
             android:paddingHorizontal="20dp"
             android:paddingBottom="10dp"
             android:textAppearance="?android:textAppearanceMedium"
