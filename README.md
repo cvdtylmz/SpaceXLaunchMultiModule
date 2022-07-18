@@ -1,4 +1,4 @@
-# SpaceXLaunchDemoApp
+# SpaceXLaunchMultiModule
 
 SpaceXLaunchDemoApp for Android. Developed with Kotlin.
 This application had 2 screens:
